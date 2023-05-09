@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Vinobo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Vinobo Logo](public/titleLogo.png)
 
-## Available Scripts
+Video Notebook for students.
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+The application allows the user to watch a Youtube video and search for keywords in the video's transcript
+to find relevant parts in the video.
+The user will also be able to annotate the video with personal notes, placed at specific times in the video.
+Signing in allows the user to save their videos and notes in their account.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### What we have done
 
-### `npm test`
+- A custom API endpoint for getting Youtube transcripts.
+- Pasting Youtube link and view the video.
+- Searching in the transcript.
+- Adding/deleting a video to the model.
+- Adding/deleting notes.
+- Logo.
+- Persistence (keeping user data saved if they sign in).
+- Auto-scrolling of transcript ~~and notes~~ while the video is playing.
+- Searching in notes.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### What we want to add
 
-### `npm run build`
+- Edit notes after they've been saved.
+- Organize/order your saved videos with tags/folders/...
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### What we would have wanted to add
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Persistance in localStorage until the first time a user signs in.
+- Text formatting notes with for example Markdown.
+- Sharing your notes on a video (collaboratively or read-only) with a link.
+- Dictionary function (look up word definitions with a 2nd API).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Developing
 
-### `npm run eject`
+### Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Clone the repo.
+2. You need `npm` to install dependencies.
+3. Run `npm install` in the project folder to install packages.
+4. To launch the development server, run `npm run dev`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### What we built the app with
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- `react` - Javascript framework
+- `next` - Next.js (React wrapper that sped up development)
+- `youtube-transcript` - A library for fetching YouTube transcripts (server side)
+- `react-loader-spinner` - React components for loader spinners
+- `firebase` - Integrations with Firebase
+- `memory-cache` - Caching API responses
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### File structure
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `components/`
+  - Custom React components to be used throughout the app.
+- `js/`
+  - Javascript files for Model, video controller and other helper functions.
+- `pages/`
+  - `api/`
+    - `get_transcript`: Custom API enpoint for delivering the data our app needs.
+  - One file per page (endpoint) on the site.
+- `presenters/`
+  - Presenters for the different views.
+- `public/`
+  - Static files. Logos and images.
+- `styles/`
+  - CSS modules that render per component.
+- `views/`
+  - Views and their respective functions.
+- `FEEDBACK.md`: Feedback from user evaluations and what we did to fix their concerns.
